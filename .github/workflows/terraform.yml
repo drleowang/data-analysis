@@ -96,8 +96,7 @@ jobs:
         cd ./terraform  # Change directory to the Terraform configuration folder
         terraform apply -auto-approve
 
-    - name: Destroy Terraform
-      run: |
-        cd ./terraform  # Change directory to the Terraform configuration folder
-        terraform destroy -auto-approve
-
+    # - name: Destroy Terraform
+    #   run: |
+    #     cd ./terraform  # Change directory to the Terraform configuration folder
+    #     terraform destroy -auto-approve
