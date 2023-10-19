@@ -10,9 +10,9 @@ terraform {
     }
 }
 
-# An example resource that does nothing.
-resource "null_resource" "example" {
-    triggers = {
-    value = "main tf!"
-    }
+# Specify the provider and region
+provider "aws" {
+  region = "us-east-1" # Change to your desired region
+  access_key = var.AWS_ACCESS_KEY_ID
+  secret_key = var.AWS_SECRET_ACCESS_KEY
 }
