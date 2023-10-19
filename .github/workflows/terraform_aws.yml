@@ -80,6 +80,12 @@ jobs:
       with:
         cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
+    - name: Create auto.tfvars
+      run: |
+        # Define the auto.tfvars file content with the secrets
+        echo "AWS_ACCESS_KEY_ID = \"$AWS_ACCESS_KEY_ID\"" > auto.tfvars
+        echo "AWS_SECRET_ACCESS_KEY = \"$AWS_SECRET_ACCESS_KEY\"" >> auto.tfvars
+
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
       run: |
@@ -89,7 +95,7 @@ jobs:
     - name: Plan Terraform
       run: |
         cd ./terraform/aws  # Change directory to the Terraform configuration folder
-        terraform plan -var "AWS_ACCESS_KEY_ID=${{ env.AWS_ACCESS_KEY_ID}}" -var "AWS_SECRET_ACCESS_KEY=${{ env.AWS_SECRET_ACCESS_KEY}}"
+        terraform plan -var-file="auto.tfvars"
 
     - name: Apply Terraform
       run: |
