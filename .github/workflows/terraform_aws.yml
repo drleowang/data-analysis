@@ -89,7 +89,7 @@ jobs:
     - name: Plan Terraform
       run: |
         cd ./terraform/aws  # Change directory to the Terraform configuration folder
-        terraform plan
+        terraform plan -var "AWS_ACCESS_KEY_ID=${{ env.AWS_ACCESS_KEY_ID}}" -var "AWS_SECRET_ACCESS_KEY=${{ env.AWS_SECRET_ACCESS_KEY}}"
 
     - name: Apply Terraform
       run: |
