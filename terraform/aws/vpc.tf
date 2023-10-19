@@ -1,8 +1,3 @@
-# Specify the provider and region
-provider "aws" {
-  region = "us-east-1" # Change to your desired region
-}
-
 # Create a VPC
 resource "aws_vpc" "my_vpc" {
   cidr_block = "10.0.0.0/16" # You can adjust the CIDR block as needed
