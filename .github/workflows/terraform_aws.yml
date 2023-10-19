@@ -95,7 +95,7 @@ jobs:
     - name: Plan Terraform
       run: |
         cd ./terraform/aws  # Change directory to the Terraform configuration folder
-        terraform plan -var-file="auto.tfvars"
+        terraform plan
 
     - name: Apply Terraform
       run: |
