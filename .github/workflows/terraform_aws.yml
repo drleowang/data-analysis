@@ -83,17 +83,17 @@ jobs:
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
       run: |
-        cd ./aws/terraform  # Change directory to the Terraform configuration folder
+        cd ./terraform/aws  # Change directory to the Terraform configuration folder
         terraform init
 
     - name: Plan Terraform
       run: |
-        cd ./aws/terraform  # Change directory to the Terraform configuration folder
+        cd ./terraform/aws  # Change directory to the Terraform configuration folder
         terraform plan
 
     - name: Apply Terraform
       run: |
-        cd ./aws/terraform  # Change directory to the Terraform configuration folder
+        cd ./terraform/aws  # Change directory to the Terraform configuration folder
         terraform apply -auto-approve
 
     # - name: Destroy Terraform
