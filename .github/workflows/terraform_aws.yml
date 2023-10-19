@@ -83,23 +83,26 @@ jobs:
     - name: Create auto.tfvars
       run: |
         # Define the auto.tfvars file content with the secrets
-        echo "AWS_ACCESS_KEY_ID = \"$AWS_ACCESS_KEY_ID\"" > ./terraform/aws/auto.tfvars
-        echo "AWS_SECRET_ACCESS_KEY = \"$AWS_SECRET_ACCESS_KEY\"" >> ./terraform/aws/auto.tfvars
+        echo "AWS_ACCESS_KEY_ID = \"$AWS_ACCESS_KEY_ID\"" > ./terraform/aws/variables.auto.tfvars
+        echo "AWS_SECRET_ACCESS_KEY = \"$AWS_SECRET_ACCESS_KEY\"" >> ./terraform/aws/variables.auto.tfvars
 
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
       run: |
         cd ./terraform/aws  # Change directory to the Terraform configuration folder
+        cat variables.auto.tfvars
         terraform init
 
     - name: Plan Terraform
       run: |
         cd ./terraform/aws  # Change directory to the Terraform configuration folder
+        variables.auto.tfvars
         terraform plan
 
     - name: Apply Terraform
       run: |
         cd ./terraform/aws  # Change directory to the Terraform configuration folder
+        variables.auto.tfvars
         terraform apply -auto-approve
 
     - name: Destroy Terraform
