@@ -83,8 +83,8 @@ jobs:
     - name: Create auto.tfvars
       run: |
         # Define the auto.tfvars file content with the secrets
-        echo "AWS_ACCESS_KEY_ID = \"$AWS_ACCESS_KEY_ID\"" > auto.tfvars
-        echo "AWS_SECRET_ACCESS_KEY = \"$AWS_SECRET_ACCESS_KEY\"" >> auto.tfvars
+        echo "AWS_ACCESS_KEY_ID = \"$AWS_ACCESS_KEY_ID\"" > ./terraform/aws/auto.tfvars
+        echo "AWS_SECRET_ACCESS_KEY = \"$AWS_SECRET_ACCESS_KEY\"" >> ./terraform/aws/auto.tfvars
 
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
