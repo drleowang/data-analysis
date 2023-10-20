@@ -17,10 +17,11 @@ module "eks_cluster" {
 # Define your node group
 module "my_node_group" {
   source = "terraform-aws-modules/eks/aws//modules/eks-managed-node-group"
+  name = "my_node_group"
+
   cluster_name = module.eks_cluster.cluster_name
-  cluster_id = module.eks_cluster.cluster_id
-  subnets = module.eks_cluster.subnets
-  vpc_id = module.eks_cluster.vpc_id
+  subnet_ids = module.eks_cluster.subnet_ids
+
   instance_type = "t2.medium"  # Adjust the instance type as needed
   desired_capacity = 2  # Adjust the desired number of nodes
 }
