@@ -22,7 +22,7 @@ module "my_node_group" {
 #   node_group_name = "my_node_group_name"
 
   cluster_name = module.eks_cluster.cluster_name
-  subnet_ids = module.eks_cluster.subnet_ids
+  subnet_ids = module.eks_cluster.subnets
 
   instance_types = ["t2.medium"]  # Adjust the instance type as needed
   desired_size = 2  # Adjust the desired number of nodes
