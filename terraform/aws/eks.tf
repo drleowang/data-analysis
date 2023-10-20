@@ -28,13 +28,4 @@ module "my_node_group" {
   desired_size = 2  # Adjust the desired number of nodes
 }
 
-# Outputs for the node group
-output "node_group_name" {
-  value = module.my_node_group.node_group_name
-}
-
-output "node_group_id" {
-  value = module.my_node_group.node_group_id
-}
-
 
