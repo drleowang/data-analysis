@@ -22,6 +22,7 @@ module "my_node_group" {
 #   node_group_name = "my_node_group_name"
 
   cluster_name = module.eks_cluster.cluster_name
+  subnet_ids = aws_subnet.my_subnets[*].id
 #   subnet_ids = module.eks_cluster.subnets
 
   instance_types = ["t2.medium"]  # Adjust the instance type as needed
