@@ -1,7 +1,7 @@
 module "eks_cluster" {
   source = "terraform-aws-modules/eks/aws"
   cluster_name = "my-eks-cluster"
-  cluster_version = "1.21"
+  cluster_version = "1.23"
   subnet_ids = aws_subnet.my_subnets[*].id
   
 
