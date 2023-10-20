@@ -51,7 +51,7 @@ resource "aws_route_table_association" "my_subnet_association" {
 resource "aws_subnet" "my_subnets" {
   count = 2
   cidr_block = element(["10.0.1.0/24", "10.0.2.0/24"], count.index)
-  availability_zone = element(["us-west-2a", "us-west-2b"], count.index)
+  availability_zone = element(["us-east-1a", "us-east-1b"], count.index)
   vpc_id = aws_vpc.my_vpc.id
   tags = {
     Name = "my-subnet-${count.index}"
