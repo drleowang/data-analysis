@@ -16,7 +16,7 @@ module "eks_cluster" {
 
 # Define your node group
 module "my_node_group" {
-  source = "terraform-aws-modules/eks/aws//modules/node_group"
+  source = "terraform-aws-modules/eks/aws//modules/eks-managed-node-group"
   cluster_name = module.eks_cluster.cluster_name
   cluster_id = module.eks_cluster.cluster_id
   subnets = module.eks_cluster.subnets
