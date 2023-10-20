@@ -1,5 +1,6 @@
 module "eks_cluster" {
   source = "terraform-aws-modules/eks/aws"
+  version = "~> 19.0"
   cluster_name = "my-eks-cluster"
   cluster_version = "1.28"
   subnet_ids = aws_subnet.my_subnets[*].id
@@ -18,6 +19,7 @@ module "eks_cluster" {
 module "my_node_group" {
   source = "terraform-aws-modules/eks/aws//modules/eks-managed-node-group"
   name = "my_node_group"
+#   node_group_name = "my_node_group_name"
 
   cluster_name = module.eks_cluster.cluster_name
   subnet_ids = module.eks_cluster.subnet_ids
