@@ -13,23 +13,23 @@ module "eks_cluster" {
     Terraform   = "true"
     Environment = "prod"
   }
-  manage_aws_auth_configmap = true
+  # manage_aws_auth_configmap = true
  
-  aws_auth_roles = [
-    {
-      rolearn  = "arn:aws:iam::825242866589:role/aws-reserved/sso.amazonaws.com/AWSReservedSSO_AdministratorAccess_66ceff32db3f5f14" # replace me
-      username = "Administrator"
-      groups   = ["system:masters"]
-    },
-  ]
+  # aws_auth_roles = [
+  #   {
+  #     rolearn  = "arn:aws:iam::825242866589:role/aws-reserved/sso.amazonaws.com/AWSReservedSSO_AdministratorAccess_66ceff32db3f5f14" # replace me
+  #     username = "Administrator"
+  #     groups   = ["system:masters"]
+  #   },
+  # ]
  
-  aws_auth_users = [
-    {
-      userarn  = "arn:aws:iam::825242866589:user/ottawaadmin" # replace me
-      username = "ottawaadmin"
-      groups   = ["system:masters"]
-    },
-  ]
+  # aws_auth_users = [
+  #   {
+  #     userarn  = "arn:aws:iam::825242866589:user/ottawaadmin" # replace me
+  #     username = "ottawaadmin"
+  #     groups   = ["system:masters"]
+  #   },
+  # ]
 }
 
 # Define your node group
