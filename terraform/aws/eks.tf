@@ -3,6 +3,7 @@ module "eks_cluster" {
   version = "~> 19.0"
   cluster_name = "my-eks-cluster"
   cluster_version = "1.28"
+  cluster_endpoint_public_access = true
   subnet_ids = aws_subnet.my_subnets[*].id
   
 
