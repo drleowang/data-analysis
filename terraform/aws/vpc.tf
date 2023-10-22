@@ -57,3 +57,9 @@ resource "aws_subnet" "my_subnets" {
     Name = "my-subnet-${count.index}"
   }
 }
+
+resource "aws_route_table_association" "my_subnets_association" {
+  count          = 2 
+  subnet_id      = aws_subnet.my_subnets[count.index].id
+  route_table_id = aws_route_table.my_route_table.id
+}
