@@ -46,4 +46,10 @@ module "eks_cluster" {
 #   desired_size = 2  # Adjust the desired number of nodes
 # }
 
+resource "kubernetes_namespace" "my_namespace" {
+  metadata {
+    name = "my-namespace"
+  }
+}
+
 
