@@ -91,13 +91,14 @@ module "eks_managed_node_group" {
     GithubOrg   = "terraform-aws-modules"
   }
 
-  taints = {
-    dedicated = {
-      key    = "dedicated"
-      value  = "gpuGroup"
-      effect = "NO_SCHEDULE"
-    }
-  }
+  # taints = {
+  #   dedicated = {
+  #     key    = "dedicated"
+  #     value  = "gpuGroup"
+  #     effect = "NO_SCHEDULE"
+  #   }
+  # }
+  taints = {}
 
   tags = {
     Environment = "dev"
